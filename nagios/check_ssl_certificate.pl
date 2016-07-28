@@ -153,18 +153,16 @@ if ($verbose) {
 }
 
 if ($daysLeft < 0) {
-  print "$PROGNAME: CRITICAL - $cn expired " . abs($daysLeft) . " day(s) ago|$desc\n";
+  print "CRITICAL - $cn expired " . abs($daysLeft) . " day(s) ago|$desc\n";
   exit $ERRORS{'CRITICAL'};
 } elsif ($daysLeft <= $critical) {
-  print "$PROGNAME: CRITICAL - only $daysLeft day(s) left for $cn|$desc\n";
+  print "CRITICAL - only $daysLeft day(s) left for $cn|$desc\n";
   exit $ERRORS{'CRITICAL'};
 } elsif ($daysLeft <= $warning) {
-  print "$PROGNAME: WARNING - only $daysLeft day(s) left for $cn|$desc\n";
+  print "WARNING - only $daysLeft day(s) left for $cn|$desc\n";
   exit $ERRORS{'WARNING'};
-} elsif ($verbose) {
-  print "$PROGNAME: $daysLeft day(s) left for $cn|$desc\n";
-} else {
-  print "|$desc\n";
+} else { 
+  print "OK - $daysLeft day(s) left for $cn|$desc\n";
 }
 
 exit $ERRORS{'OK'};
